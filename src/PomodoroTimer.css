@@ -1,0 +1,70 @@
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  .pomodoro-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    background-image: url('anime_image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    height: 100vh;
+  }
+  
+  .heading {
+    font-size: 4vw;
+    margin-bottom: 1.5rem;
+  }
+  
+  .timer {
+    font-size: 8vw;
+    margin-bottom: 2rem;
+  }
+  
+  .controls {
+    margin-bottom: 2rem;
+  }
+  
+  .btn {
+    padding: 0.5rem 1rem; /* Adjust the padding to make the buttons smaller */
+    font-size: 3vw; /* Adjust the font-size to make the buttons smaller */
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 0 0.5rem;
+    color: white;
+    background-color: transparent;
+    border: 1px solid white;
+  }
+  
+  .start-btn {
+    border-color: #61bd4f;
+  }
+  
+  .pause-btn {
+    border-color: #eb5a46;
+  }
+  
+  .reset-btn {
+    border-color: #f2d600;
+  }
+  
+  .cycle-info {
+    margin-bottom: 2rem;
+    font-size: 2vw;
+  }
+  
+  .anime-image {
+    width: 30vw;
+    max-width: 300px;
+    border-radius: 50%;
+    margin-bottom: 2rem;
+    display: none;
+  }
+  
