@@ -79,10 +79,13 @@ const PomodoroTimer = () => {
     };
 
     const pauseResumeTimer = () => {
-        // Pause the timer
+        if (isActive) {
+            pauseBackgroundMusic();
+        } else {
+            playBackgroundMusic();
+        }
         setIsActive(!isActive);
         setIsPaused(!isPaused);
-        pauseBackgroundMusic();
     };
 
     const resetTimer = () => {
