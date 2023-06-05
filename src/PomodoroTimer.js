@@ -3,6 +3,7 @@ import animeImage from './anime_image.jpg';
 import bgm from './anime_bgm.mp3';
 import notificationSound from './notification_sound.mp3';
 import './PomodoroTimer.css'; // Import the CSS file for styling
+import Modal from './components/Modal';
 
 const WORK_MODE = {
     WORK: 'WORK',
@@ -24,6 +25,7 @@ const PomodoroTimer = () => {
     const [startMode, setStartMode] = useState(WORK_MODE.WORK); // Initial start mode: 'work', 'shortBreak', 'longBreak'
     const audioRef = useRef(new Audio(bgm));
     const notificationSoundRef = useRef(new Audio(notificationSound));
+    const [isSettingOpen, setIsSettingOpen] = useState(false);
 
     useEffect(() => {
         let interval = null;
@@ -150,12 +152,17 @@ const PomodoroTimer = () => {
                         disabled={startMode === WORK_MODE.LONG_BREAK}>Long Break
                 </button>
                 <button className="btn reset-btn" onClick={resetTimer}>Reset</button>
+                <button className="btn reset-btn" onClick={() => setIsSettingOpen(true)}>Setting</button>
             </div>
             <div className="cycle-info">
                 <p>Current Cycle: {currentCycle}</p>
                 <p>Total Cycles: {cycles}</p>
             </div>
             <img className="anime-image" src={animeImage} alt="Anime"/>
+            <Modal isOpen={isSettingOpen} onClose={() => setIsSettingOpen(false)}>
+                <h2>Modal Content</h2>
+                <p>This is the content of the modal.</p>
+            </Modal>
         </div>
     );
 };
