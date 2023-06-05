@@ -18,7 +18,7 @@ const INITIAL_TIME = {
 const PomodoroTimer = () => {
     const [cycles, setCycles] = useState(4); // Number of Pomodoro cycles
     const [currentCycle, setCurrentCycle] = useState(1);
-    const [time, setTime] = useState(INITIAL_TIME.WORK);
+    const [time, setTime] = useState(INITIAL_TIME.WORK); 
     const [isActive, setIsActive] = useState(false);
     const [isPaused, setIsPaused] = useState(false);
     const [startMode, setStartMode] = useState(WORK_MODE.WORK); // Initial start mode: 'work', 'shortBreak', 'longBreak'
@@ -79,14 +79,20 @@ const PomodoroTimer = () => {
     };
 
     const pauseResumeTimer = () => {
-        if (isActive) {
+        if (isActive) { 
             pauseBackgroundMusic();
-        } else {
+        } else { 
             playBackgroundMusic();
         }
         setIsActive(!isActive);
         setIsPaused(!isPaused);
     };
+
+    const skipTimer = () => {
+        // skip the time
+        setTime(0);
+    };
+
 
     const resetTimer = () => {
         // Reset the time
@@ -127,9 +133,12 @@ const PomodoroTimer = () => {
             <div className="controls">
                 {!isPaused && !isActive ?
                     <button className="btn start-btn" onClick={startTimer}>Start</button> :
-                    <button className="btn pause-btn"
+                    <>
+                        <button className="btn pause-btn"
                             onClick={pauseResumeTimer}>{isActive ? 'Pause' : 'Resume'}
-                    </button>
+                        </button>
+                        <button className="btn reset-btn" onClick={skipTimer}>Skip</button>
+                    </>
                 }
                 <button className="btn start-btn" onClick={() => setMode(WORK_MODE.WORK)}
                         disabled={startMode === WORK_MODE.WORK}>Pomodoro
